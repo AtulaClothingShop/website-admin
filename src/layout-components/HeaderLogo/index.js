@@ -26,7 +26,7 @@ const HeaderLogo = () => {
               />
             </IconButton>
           </Link>
-          <Box className="header-logo-text">NFT Analyze</Box>
+          <Box className="header-logo-text">Clothing Shop</Box>
         </Box>
       </div>
     </Fragment>

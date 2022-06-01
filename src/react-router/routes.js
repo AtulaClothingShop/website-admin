@@ -6,22 +6,18 @@ import { AnimatePresence, motion } from 'framer-motion';
 
 import { ThemeProvider } from '@material-ui/styles';
 
-import { PrivateRoute } from './privateRoute';
-import { AuthRoute } from './authRoute';
 import { PublicRoute } from './publicRoute';
+import { PermissionRoute, AllRoute } from './permission';
 
 // Theme
 import MuiTheme from '../theme';
 
 // Layout Blueprints
-import { LeftSidebar, PresentationLayout } from '../layout-blueprints';
+import { LeftSidebar } from '../layout-blueprints';
 
-import { PermissionRoute, AllRoute } from './permission';
-
-const NotFound = lazy(() => import('../modules/not-found'))
-
-const OverviewDashboard = lazy(() => import('../modules/overview/components'));
-const UserAnalysis = lazy(() => import('../modules/user-analysis/components'));
+// Component
+const NotFound = lazy(() => import('../modules/not-found'));
+const ProductManagement = lazy(() => import('../modules/product/components'));
 
 const Routes = props => {
   const { user } = props;
@@ -48,7 +44,7 @@ const Routes = props => {
     duration: 0.4
   };
 
-  let currentUser = user.currentUser
+  let currentUser = user.currentUser;
 
   return (
     <ThemeProvider theme={MuiTheme}>
@@ -72,14 +68,9 @@ const Routes = props => {
                     variants={pageVariants}
                     transition={pageTransition}>
                     <PublicRoute
-                      path={PermissionRoute.OVERVIEW.path}
-                      title={PermissionRoute.OVERVIEW.title}
-                      component={OverviewDashboard}
-                    />
-                    <PublicRoute
-                      path={PermissionRoute.USER_ANALYSIS.path}
-                      title={PermissionRoute.USER_ANALYSIS.title}
-                      component={UserAnalysis}
+                      path={PermissionRoute.PRODUCT.path}
+                      title={PermissionRoute.PRODUCT.title}
+                      component={ProductManagement}
                     />
                     <PublicRoute
                       path={PermissionRoute.NOT_FOUND.path}
