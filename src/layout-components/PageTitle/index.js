@@ -13,7 +13,11 @@ function PageTitle(props) {
             </div>
           </div>
         </div>
-        <Button variant="contained" color="primary" style={{ fontWeight: 600 }}>
+        <Button
+          variant="contained"
+          color="primary"
+          style={{ fontWeight: 600 }}
+          onClick={() => props.handleOpenCreateModal()}>
           CREATE NEW
         </Button>
       </Paper>

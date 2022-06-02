@@ -1,8 +1,6 @@
 import React, { Fragment } from 'react';
 import { connect } from 'react-redux';
 
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-
 import {
   Avatar,
   Box,
@@ -10,11 +8,10 @@ import {
   Button,
   List,
   ListItem,
-  Tooltip,
   Divider
 } from '@material-ui/core';
 
-import { AuthActions } from '../../modules/auth/redux/actions'
+import { AuthActions } from '../../modules/auth/redux/actions';
 
 function HeaderUserbox(props) {
   const { user } = props;
@@ -29,11 +26,11 @@ function HeaderUserbox(props) {
   };
 
   const handleLogout = () => {
-    props.logout()
-  }
+    props.logout();
+  };
 
   let currentUser = user?.currentUser;
-  let walletAddress = localStorage.getItem('address')
+  let walletAddress = localStorage.getItem('address');
   return (
     <Fragment>
       <Button
@@ -43,11 +40,13 @@ function HeaderUserbox(props) {
         <Box>
           <Avatar sizes="44" alt="Emma Taylor" src={currentUser?.avatar} />
         </Box>
-        {walletAddress &&
+        {walletAddress && (
           <div className="d-xl-block pl-2">
-            <div className="font-weight-bold pt-1 line-height-3">{walletAddress.slice(0, 6)}...{walletAddress.slice(-4)}</div>
+            <div className="font-weight-bold pt-1 line-height-3">
+              {walletAddress.slice(0, 6)}...{walletAddress.slice(-4)}
+            </div>
           </div>
-        }
+        )}
       </Button>
 
       <Menu
@@ -82,7 +81,12 @@ function HeaderUserbox(props) {
             <ListItem button>My Account</ListItem>
             <ListItem button>Profile settings</ListItem>
             <ListItem button>Active tasks</ListItem>
-            <ListItem button style={{ color: '#f83245' }} onClick={() => handleLogout()}>Log out</ListItem>
+            <ListItem
+              button
+              style={{ color: '#f83245' }}
+              onClick={() => handleLogout()}>
+              Log out
+            </ListItem>
           </List>
         </div>
       </Menu>

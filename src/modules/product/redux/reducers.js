@@ -16,6 +16,20 @@ export function product(state = {}, action) {
         ...state
       };
 
+    case ProductConstants.CREATE_PRODUCT_REQUEST:
+      return {
+        ...state
+      };
+    case ProductConstants.CREATE_PRODUCT_FAILURE:
+      return {
+        ...state,
+        products: action.payload
+      };
+    case ProductConstants.CREATE_PRODUCT_SUCCESS:
+      return {
+        ...state
+      };
+
     default:
       return state;
   }

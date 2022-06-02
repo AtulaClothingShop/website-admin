@@ -1,0 +1,11 @@
+.downshift-multiple .MuiFormControl-root {
+  width: 100%;
+}
+.downshift-multiple input {
+  width: fit-content;
+}
+
+.downshift-multiple .MuiInputBase-root {
+  display: flex;
+  flex-wrap: wrap;
+}
