@@ -20,7 +20,14 @@ function getProducts(data) {
 }
 
 function createProduct(data) {
-  data = pick(data, ['name', 'type', 'price', 'sizeRanges', 'productInfos']);
+  data = pick(data, [
+    'name',
+    'type',
+    'price',
+    'sizeRanges',
+    'colors',
+    'productInfos'
+  ]);
 
   let productInfos = [];
   data.productInfos.forEach(item => {

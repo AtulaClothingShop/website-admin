@@ -73,7 +73,7 @@ function ProductManagement(props) {
       <Grid container spacing={4}>
         {/* Search Field */}
         <Grid item xs={12}>
-          <Card>
+          <Card className="shop-card">
             <CardContent>
               <Grid
                 container

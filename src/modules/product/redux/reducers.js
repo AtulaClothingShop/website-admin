@@ -20,12 +20,15 @@ export function product(state = {}, action) {
       return {
         ...state
       };
-    case ProductConstants.CREATE_PRODUCT_FAILURE:
+    case ProductConstants.CREATE_PRODUCT_SUCCESS:
       return {
         ...state,
-        products: action.payload
+        products: {
+          ...state.products,
+          items: [action.payload, ...state.products.items]
+        }
       };
-    case ProductConstants.CREATE_PRODUCT_SUCCESS:
+    case ProductConstants.CREATE_PRODUCT_FAILURE:
       return {
         ...state
       };

@@ -6,9 +6,6 @@ button.btn-bool {
 }
 
 /* Card Filter Table */
-.shop-card {
-    margin-bottom: 30px;
-}
 .shop-card .grid-item {
-    /* text-align: center; */
+    text-align: center;
 }

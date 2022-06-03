@@ -18,9 +18,14 @@ import {
   FormControl,
   MenuItem,
   InputLabel,
-  Select
+  Select,
+  FormHelperText
 } from '@material-ui/core';
 import { makeStyles } from '@material-ui/core/styles';
+
+import { withFormik } from 'formik';
+import * as Yup from 'yup';
+import _ from 'lodash';
 
 // Components
 import { TagsInput } from '../../../common-components';
@@ -35,23 +40,20 @@ const useStyles = makeStyles(theme => ({
   },
   dialogContent: {
     overflowX: 'hidden'
+  },
+  tableCellInput: {
+    width: '30%'
   }
 }));
 
 function CreateProductModal(props) {
-  const { open, handleClose } = props;
+  const { open, handleClose, values } = props;
   const classes = useStyles();
-  const [product, setProduct] = useState({
-    name: '',
-    type: '',
-    price: ''
-  });
   const [productInfos, setProductInfos] = useState([{}, {}]);
   const [sizeRanges, setSizeRanges] = useState([]);
   const [colors, setColors] = useState([]);
 
   useEffect(() => {
-    console.log(sizeRanges, colors);
     let _productInfos = [];
     sizeRanges.forEach(size => {
       colors.forEach(color => {
@@ -74,32 +76,21 @@ function CreateProductModal(props) {
     setColors(items);
   };
 
-  const handleChangeProduct = (e, type) => {
-    console.log(e.target.value);
-    setProduct({
-      ...product,
-      [type]: e.target.value
-    });
+  const handleProductQuantity = (e, index) => {
+    let _productInfos = productInfos;
+    if (index < _productInfos.length) {
+      _productInfos[index].quantity = e.target.value;
+    }
+
+    setProductInfos(_productInfos);
   };
 
   const handleCreateProduct = () => {
     props.createProduct({
-      name: 'T-shirt',
-      price: '2.8',
-      type: 'MEN',
-      sizeRanges: ['39', '40'],
-      productInfos: [
-        {
-          color: 'red',
-          size: '39',
-          quantity: 2
-        },
-        {
-          color: 'yellow',
-          size: '39',
-          quantity: 1
-        }
-      ]
+      ...props.values,
+      sizeRanges: sizeRanges,
+      colors: colors,
+      productInfos: productInfos
     });
     handleClose();
   };
@@ -117,25 +108,31 @@ function CreateProductModal(props) {
           <Grid item xs={12}>
             <Grid container spacing={1}>
               <Grid item xs={12}>
-                <TextField
-                  autoFocus
-                  margin="dense"
-                  id="name"
-                  label="Name"
-                  fullWidth
-                  value={product.name}
-                  onChange={e => handleChangeProduct(e, 'name')}
-                />
+                <FormControl fullWidth margin="normal">
+                  <TextField
+                    autoFocus
+                    margin="dense"
+                    id="name"
+                    label="Name"
+                    fullWidth
+                    value={values.name}
+                    onChange={props.handleChange}
+                    error={!!props.errors.name}
+                  />
+                  <FormHelperText error={!!props.errors.name}>
+                    {props.errors.name}
+                  </FormHelperText>
+                </FormControl>
               </Grid>
               <Grid item xs={12}>
-                <FormControl fullWidth={true}>
+                <FormControl fullWidth>
                   <InputLabel id="type-select-label">Type</InputLabel>
                   <Select
                     labelId="type-select-label"
                     id="type-select"
-                    // value={age}
-                    // onChange={handleChange}
-                    label="Type">
+                    label="Type"
+                    value={values.type}
+                    onChange={props.handleChange('type')}>
                     <MenuItem value="">
                       <em>None</em>
                     </MenuItem>
@@ -143,16 +140,27 @@ function CreateProductModal(props) {
                     <MenuItem value={'WOMEN'}>WOMEN</MenuItem>
                     <MenuItem value={'KID'}>KID</MenuItem>
                   </Select>
+                  <FormHelperText error={!!props.errors.type}>
+                    {props.errors.type}
+                  </FormHelperText>
                 </FormControl>
               </Grid>
               <Grid item xs={12}>
-                <TextField
-                  autoFocus
-                  margin="dense"
-                  id="price"
-                  label="Price ($)"
-                  fullWidth
-                />
+                <FormControl fullWidth margin="normal">
+                  <TextField
+                    autoFocus
+                    margin="dense"
+                    id="price"
+                    label="Price ($)"
+                    fullWidth
+                    value={values.price}
+                    onChange={props.handleChange}
+                    error={!!props.errors.price}
+                  />
+                  <FormHelperText error={!!props.errors.price}>
+                    {props.errors.price}
+                  </FormHelperText>
+                </FormControl>
               </Grid>
               <Grid item xs={12}>
                 <TagsInput
@@ -205,18 +213,16 @@ function CreateProductModal(props) {
                         <TableCell className="text-center">
                           <span className="font-weight-bold">{item.color}</span>
                         </TableCell>
-                        <TableCell>
+                        <TableCell classes={{ root: classes.tableCellInput }}>
                           <TextField
                             variant="standard" // <== changed this
-                            margin="normal"
-                            required
                             id={'quantity' + index}
-                            autoFocus
                             placeholder="Quantity"
                             type="number"
                             InputProps={{
                               disableUnderline: true // <== added this
                             }}
+                            onChange={e => handleProductQuantity(e, index)}
                           />
                         </TableCell>
                       </TableRow>
@@ -231,13 +237,18 @@ function CreateProductModal(props) {
         <Button onClick={handleClose} color="primary">
           Cancel
         </Button>
-        <Button onClick={handleCreateProduct} color="primary">
+        <Button
+          onClick={handleCreateProduct}
+          color="primary"
+          disabled={!_.isEmpty(props.errors)}>
           Create
         </Button>
       </DialogActions>
     </Dialog>
   );
 }
+
+// Connect state redux
 function mapState(state) {
   const { product } = state;
   return { product };
@@ -246,4 +257,27 @@ const actions = {
   createProduct: ProductActions.createProduct
 };
 
-export default connect(mapState, actions)(CreateProductModal);
+// Formik
+const FormikCreateProductModal = withFormik({
+  mapPropsToValues() {
+    // Init form field
+    return {
+      name: '',
+      type: '',
+      price: ''
+    };
+  },
+  validationSchema: Yup.object().shape({
+    // Validate form field
+    name: Yup.string()
+      .required('Name is required')
+      .min(5, 'Name must have min 5 characters')
+      .max(10, 'Name have max 10 characters'),
+    type: Yup.string()
+      .required('Type is required')
+      .oneOf(['MEN', 'WOMEN', 'KID']),
+    price: Yup.number().required('Price is required')
+  })
+})(CreateProductModal);
+
+export default connect(mapState, actions)(FormikCreateProductModal);
