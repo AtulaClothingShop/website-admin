@@ -1,5 +1,5 @@
 /* eslint-disable react-hooks/exhaustive-deps */
-import React, { Fragment, useEffect, useState } from 'react';
+import React, { Fragment, useEffect, useState, useCallback } from 'react';
 import { connect } from 'react-redux';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -28,6 +28,8 @@ import {
   MenuItem
 } from '@material-ui/core';
 
+import { debounce } from 'lodash';
+
 // Layout
 import { PageTitle } from '../../../layout-components';
 
@@ -42,6 +44,10 @@ function ProductManagement(props) {
   const [expand, setExpand] = useState(false);
   const [openCreateModal, setOpenCreateModal] = useState(false);
 
+  useEffect(() => {
+    props.getProducts();
+  }, []);
+
   const handleOpenCreateModal = () => {
     setOpenCreateModal(!openCreateModal);
   };
@@ -50,10 +56,16 @@ function ProductManagement(props) {
     setExpand(!expand);
   };
 
-  useEffect(() => {
-    props.getProducts();
-  }, []);
-
+  const handleSearch = useCallback(
+    debounce(
+      () => {
+        console.log('click');
+      },
+      2000,
+      { leading: 1 }
+    ),
+    []
+  );
   let products = product?.products;
   return (
     <Fragment>
@@ -133,7 +145,7 @@ function ProductManagement(props) {
                     variant="contained"
                     color="primary"
                     className="btn-bool"
-                    si
+                    onClick={() => handleSearch()}
                     fullWidth={true}>
                     SEARCH
                   </Button>
