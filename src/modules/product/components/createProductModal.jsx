@@ -136,9 +136,9 @@ function CreateProductModal(props) {
                     <MenuItem value="">
                       <em>None</em>
                     </MenuItem>
-                    <MenuItem value={'MEN'}>MEN</MenuItem>
-                    <MenuItem value={'WOMEN'}>WOMEN</MenuItem>
-                    <MenuItem value={'KID'}>KID</MenuItem>
+                    <MenuItem value={'CAKE'}>CAKE</MenuItem>
+                    <MenuItem value={'CANDY'}>CANDY</MenuItem>
+                    <MenuItem value={'OTHER'}>OTHER</MenuItem>
                   </Select>
                   <FormHelperText error={!!props.errors.type}>
                     {props.errors.type}
