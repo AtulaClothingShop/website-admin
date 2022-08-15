@@ -4,7 +4,7 @@ import { connect } from 'react-redux'
 function NotFound(props) {
   return (
     <Fragment>
-      <div>Not Found 404</div>
+      <div>Not Found (404)</div>
     </Fragment>
   )
 }
