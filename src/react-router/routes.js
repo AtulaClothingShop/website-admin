@@ -20,7 +20,6 @@ const NotFound = lazy(() => import('../modules/not-found'))
 const ProductManagement = lazy(() => import('../modules/product/components'))
 
 const Routes = (props) => {
-  const { user } = props
   const location = useLocation()
 
   const pageVariants = {
