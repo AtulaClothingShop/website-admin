@@ -2,7 +2,7 @@ const Role = {
   SYSTEM_ADMIN: 'SYSTEMADMIN',
   ADMIN: 'ADMIN',
   MEMBER: 'MEMBER'
-};
+}
 
 const PermissionRoute = {
   PRODUCT: {
@@ -15,8 +15,8 @@ const PermissionRoute = {
     path: '/404',
     title: 'Not Found'
   }
-};
+}
 
-const AllRoute = Object.values(PermissionRoute).map(item => item.path);
+const AllRoute = Object.values(PermissionRoute).map((item) => item.path)
 
-export { Role, PermissionRoute, AllRoute };
+export { Role, PermissionRoute, AllRoute }

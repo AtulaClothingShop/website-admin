@@ -1,11 +1,11 @@
 .app-sidebar-icon {
-    margin-right: 10px;
+  margin-right: 10px;
 }
 button.btn-bool {
-    font-weight: 600 !important;
+  font-weight: 600 !important;
 }
 
 /* Card Filter Table */
 .shop-card .grid-item {
-    text-align: center;
+  text-align: center;
 }

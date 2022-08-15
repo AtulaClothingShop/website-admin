@@ -1,13 +1,13 @@
-import React, { Fragment } from 'react';
+import React, { Fragment } from 'react'
 
-import Chart from 'react-apexcharts';
+import Chart from 'react-apexcharts'
 
 export default function LivePreviewExample() {
   const options = {
     xaxis: {
       categories: ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun']
     }
-  };
+  }
   const series = [
     {
       name: 'series-1',
@@ -17,11 +17,11 @@ export default function LivePreviewExample() {
       name: 'series-2',
       data: [23, 12, 54, 61, 32, 56, 81, 19]
     }
-  ];
+  ]
 
   return (
     <Fragment>
-      <Chart options={options} series={series} type="area" />
+      <Chart options={options} series={series} type='area' />
     </Fragment>
-  );
+  )
 }

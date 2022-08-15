@@ -1,6 +1,6 @@
-import React, { Fragment } from 'react';
+import React, { Fragment } from 'react'
 
-import Chart from 'react-apexcharts';
+import Chart from 'react-apexcharts'
 
 export default function LivePreviewExample() {
   const series = [
@@ -73,7 +73,7 @@ export default function LivePreviewExample() {
         { x: '18', y: 41 }
       ]
     }
-  ];
+  ]
   const options = {
     chart: {
       height: 350,
@@ -86,11 +86,11 @@ export default function LivePreviewExample() {
     title: {
       text: 'HeatMap Chart (Single color)'
     }
-  };
+  }
 
   return (
     <Fragment>
-      <Chart options={options} series={series} type="heatmap" height={350} />
+      <Chart options={options} series={series} type='heatmap' height={350} />
     </Fragment>
-  );
+  )
 }

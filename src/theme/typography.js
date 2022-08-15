@@ -54,4 +54,4 @@ export default {
     fontWeight: 500,
     textTransform: 'uppercase'
   }
-};
+}

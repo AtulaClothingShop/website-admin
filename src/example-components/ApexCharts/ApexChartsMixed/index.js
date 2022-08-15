@@ -1,6 +1,6 @@
-import React, { Fragment } from 'react';
+import React, { Fragment } from 'react'
 
-import Chart from 'react-apexcharts';
+import Chart from 'react-apexcharts'
 
 export default function LivePreviewExample() {
   const optionsMixedChart = {
@@ -36,7 +36,7 @@ export default function LivePreviewExample() {
       min: 0,
       max: 100
     }
-  };
+  }
 
   const seriesMixedChart = [
     {
@@ -54,15 +54,11 @@ export default function LivePreviewExample() {
       type: 'column',
       data: [62, 12, 45, 55, 76, 41, 23, 43]
     }
-  ];
+  ]
 
   return (
     <Fragment>
-      <Chart
-        options={optionsMixedChart}
-        series={seriesMixedChart}
-        type="line"
-      />
+      <Chart options={optionsMixedChart} series={seriesMixedChart} type='line' />
     </Fragment>
-  );
+  )
 }

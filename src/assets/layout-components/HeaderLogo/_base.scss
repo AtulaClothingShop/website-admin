@@ -1,6 +1,5 @@
 // Core
 body {
-
   .app-header-logo {
     height: $header-height;
     width: $sidebar-width;
@@ -10,7 +9,7 @@ body {
 
     display: flex;
     align-items: center;
-    background: rgba(255,255,255,.08);
+    background: rgba(255, 255, 255, 0.08);
     padding-left: ($spacer);
     padding-right: ($spacer);
     justify-content: space-between;
@@ -30,10 +29,10 @@ body {
   .header-logo-wrapper-btn {
     padding: ($spacer / 3);
     color: $white;
-    background: rgba(255,255,255,.09);
+    background: rgba(255, 255, 255, 0.09);
 
     &:hover {
-      background: rgba(255,255,255,.14);
+      background: rgba(255, 255, 255, 0.14);
     }
   }
 

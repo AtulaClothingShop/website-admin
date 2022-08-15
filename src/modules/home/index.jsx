@@ -1,17 +1,14 @@
-import React, { Fragment, useClasses } from 'react';
-import { connect } from 'react-redux';
+import React, { Fragment, useClasses } from 'react'
+import { connect } from 'react-redux'
 
 function Home(props) {
-  return (
-    <Fragment>
-    </Fragment>
-  );
+  return <Fragment></Fragment>
 }
 
 function mapState(state) {
-  const {} = state;
-  return {};
+  const {} = state
+  return {}
 }
-const actions = {};
+const actions = {}
 
-export default connect(mapState, actions)(Home);
+export default connect(mapState, actions)(Home)

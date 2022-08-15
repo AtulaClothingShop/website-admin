@@ -1,6 +1,6 @@
-import { PermissionRoute } from '../../react-router/permission';
+import { PermissionRoute } from '../../react-router/permission'
 
-import DashboardTwoToneIcon from '@material-ui/icons/DashboardTwoTone';
+import DashboardTwoToneIcon from '@material-ui/icons/DashboardTwoTone'
 
 export default [
   {
@@ -14,4 +14,4 @@ export default [
       }
     ]
   }
-];
+]

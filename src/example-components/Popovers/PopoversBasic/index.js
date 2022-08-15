@@ -1,63 +1,59 @@
-import React, { Fragment } from 'react';
+import React, { Fragment } from 'react'
 
-import { Box, Popover, Button } from '@material-ui/core';
+import { Box, Popover, Button } from '@material-ui/core'
 
 export default function LivePreviewExample() {
-  const [anchorEl1, setAnchorEl1] = React.useState(null);
-  const [anchorEl2, setAnchorEl2] = React.useState(null);
-  const [anchorEl3, setAnchorEl3] = React.useState(null);
-  const [anchorEl4, setAnchorEl4] = React.useState(null);
-  const [anchorEl5, setAnchorEl5] = React.useState(null);
+  const [anchorEl1, setAnchorEl1] = React.useState(null)
+  const [anchorEl2, setAnchorEl2] = React.useState(null)
+  const [anchorEl3, setAnchorEl3] = React.useState(null)
+  const [anchorEl4, setAnchorEl4] = React.useState(null)
+  const [anchorEl5, setAnchorEl5] = React.useState(null)
 
-  const handleClickPopover1 = event => {
-    setAnchorEl1(event.currentTarget);
-  };
+  const handleClickPopover1 = (event) => {
+    setAnchorEl1(event.currentTarget)
+  }
   const handleClosePopover1 = () => {
-    setAnchorEl1(null);
-  };
+    setAnchorEl1(null)
+  }
 
-  const handleClickPopover2 = event => {
-    setAnchorEl2(event.currentTarget);
-  };
+  const handleClickPopover2 = (event) => {
+    setAnchorEl2(event.currentTarget)
+  }
   const handleClosePopover2 = () => {
-    setAnchorEl2(null);
-  };
+    setAnchorEl2(null)
+  }
 
-  const handleClickPopover3 = event => {
-    setAnchorEl3(event.currentTarget);
-  };
+  const handleClickPopover3 = (event) => {
+    setAnchorEl3(event.currentTarget)
+  }
   const handleClosePopover3 = () => {
-    setAnchorEl3(null);
-  };
+    setAnchorEl3(null)
+  }
 
-  const handleClickPopover4 = event => {
-    setAnchorEl4(event.currentTarget);
-  };
+  const handleClickPopover4 = (event) => {
+    setAnchorEl4(event.currentTarget)
+  }
   const handleClosePopover4 = () => {
-    setAnchorEl4(null);
-  };
+    setAnchorEl4(null)
+  }
 
-  const handleClickPopover5 = event => {
-    setAnchorEl5(event.currentTarget);
-  };
+  const handleClickPopover5 = (event) => {
+    setAnchorEl5(event.currentTarget)
+  }
   const handleClosePopover5 = () => {
-    setAnchorEl5(null);
-  };
+    setAnchorEl5(null)
+  }
 
-  const open1 = Boolean(anchorEl1);
-  const open2 = Boolean(anchorEl2);
-  const open3 = Boolean(anchorEl3);
-  const open4 = Boolean(anchorEl4);
-  const open5 = Boolean(anchorEl5);
+  const open1 = Boolean(anchorEl1)
+  const open2 = Boolean(anchorEl2)
+  const open3 = Boolean(anchorEl3)
+  const open4 = Boolean(anchorEl4)
+  const open5 = Boolean(anchorEl5)
 
   return (
     <Fragment>
-      <div className="text-center">
-        <Button
-          variant="outlined"
-          color="primary"
-          className="m-2"
-          onClick={handleClickPopover1}>
+      <div className='text-center'>
+        <Button variant='outlined' color='primary' className='m-2' onClick={handleClickPopover1}>
           Popover on top
         </Button>
         <Popover
@@ -71,17 +67,12 @@ export default function LivePreviewExample() {
           transformOrigin={{
             vertical: 'bottom',
             horizontal: 'center'
-          }}>
-          <Box className="p-4">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-          </Box>
+          }}
+        >
+          <Box className='p-4'>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</Box>
         </Popover>
 
-        <Button
-          variant="outlined"
-          color="primary"
-          className="m-2"
-          onClick={handleClickPopover2}>
+        <Button variant='outlined' color='primary' className='m-2' onClick={handleClickPopover2}>
           Popover on right
         </Button>
         <Popover
@@ -95,17 +86,12 @@ export default function LivePreviewExample() {
           transformOrigin={{
             vertical: 'center',
             horizontal: 'left'
-          }}>
-          <Box className="p-4">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-          </Box>
+          }}
+        >
+          <Box className='p-4'>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</Box>
         </Popover>
 
-        <Button
-          variant="outlined"
-          color="primary"
-          className="m-2"
-          onClick={handleClickPopover3}>
+        <Button variant='outlined' color='primary' className='m-2' onClick={handleClickPopover3}>
           Popover on center
         </Button>
         <Popover
@@ -119,17 +105,12 @@ export default function LivePreviewExample() {
           transformOrigin={{
             vertical: 'center',
             horizontal: 'center'
-          }}>
-          <Box className="p-4">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-          </Box>
+          }}
+        >
+          <Box className='p-4'>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</Box>
         </Popover>
 
-        <Button
-          variant="outlined"
-          color="primary"
-          className="m-2"
-          onClick={handleClickPopover4}>
+        <Button variant='outlined' color='primary' className='m-2' onClick={handleClickPopover4}>
           Popover on bottom
         </Button>
         <Popover
@@ -143,17 +124,12 @@ export default function LivePreviewExample() {
           transformOrigin={{
             vertical: 'top',
             horizontal: 'center'
-          }}>
-          <Box className="p-4">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-          </Box>
+          }}
+        >
+          <Box className='p-4'>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</Box>
         </Popover>
 
-        <Button
-          variant="outlined"
-          color="primary"
-          className="m-2"
-          onClick={handleClickPopover5}>
+        <Button variant='outlined' color='primary' className='m-2' onClick={handleClickPopover5}>
           Popover on left
         </Button>
         <Popover
@@ -167,12 +143,11 @@ export default function LivePreviewExample() {
           transformOrigin={{
             vertical: 'center',
             horizontal: 'right'
-          }}>
-          <Box className="p-4">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-          </Box>
+          }}
+        >
+          <Box className='p-4'>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</Box>
         </Popover>
       </div>
     </Fragment>
-  );
+  )
 }
