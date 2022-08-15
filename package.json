@@ -58,9 +58,9 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "lint": "eslint  --fix src/**/*.js",
-    "format": "prettier src/**/*.js --write . --config ./.prettierrc",
-    "test:format": "prettier --check src/**/*.js",
+    "check:lint": "eslint \"./**/*.{js,jsx,json}\"",
+    "format": "prettier \"./**/*.{js,jsx,json}\" --write . --config ./.prettierrc",
+    "check:format": "prettier \"./**/*.{js,jsx,json}\" --check",
     "predeploy": "npm run build",
     "deploy": "gh-pages -d build"
   },

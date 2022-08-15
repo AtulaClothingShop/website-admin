@@ -22,7 +22,7 @@ export default function LivePreviewExample() {
           total: {
             show: true,
             label: 'Total',
-            formatter: function () {
+            formatter: function() {
               return 249
             }
           }
