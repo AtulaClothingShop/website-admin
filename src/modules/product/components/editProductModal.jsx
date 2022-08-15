@@ -47,7 +47,7 @@ const useStyles = makeStyles((theme) => ({
 }))
 
 function EditProductModal(props) {
-  const { product, open, handleClose, values } = props
+  const { open, handleClose, values } = props
   const classes = useStyles()
   const [productInfos, setProductInfos] = useState([{}, {}])
   const [sizeRanges, setSizeRanges] = useState([])

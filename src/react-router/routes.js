@@ -44,7 +44,7 @@ const Routes = (props) => {
     duration: 0.4
   }
 
-  let currentUser = user.currentUser
+  // let currentUser = user.currentUser
 
   return (
     <ThemeProvider theme={MuiTheme}>

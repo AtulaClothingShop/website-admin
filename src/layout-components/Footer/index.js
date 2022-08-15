@@ -2,7 +2,7 @@ import React, { Fragment } from 'react'
 
 import clsx from 'clsx'
 
-import { Paper, List, ListItem, ListItemText } from '@material-ui/core'
+import { Paper } from '@material-ui/core'
 
 import { connect } from 'react-redux'
 

@@ -1,4 +1,4 @@
-import React, { Fragment, useClasses } from 'react'
+import React, { Fragment } from 'react'
 import { connect } from 'react-redux'
 
 function NotFound(props) {
@@ -10,8 +10,8 @@ function NotFound(props) {
 }
 
 function mapState(state) {
-  const {} = state
-  return {}
+  // const {} = state
+  return state
 }
 const actions = {}
 
