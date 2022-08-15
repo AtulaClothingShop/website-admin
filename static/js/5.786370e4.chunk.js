@@ -1,0 +1,2 @@
+(this.webpackJsonpsupermarket=this.webpackJsonpsupermarket||[]).push([[5],{447:function(e,t,n){"use strict";n.r(t);var r=n(0),u=n.n(r),a=n(30);t.default=Object(a.b)((function(e){return e}),{})((function(e){return u.a.createElement(r.Fragment,null,u.a.createElement("div",null,"Not Found (404)"))}))}}]);
+//# sourceMappingURL=5.786370e4.chunk.js.map
