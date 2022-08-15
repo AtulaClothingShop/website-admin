@@ -62,17 +62,16 @@ body {
     }
   }
 
-
   .sidebar-expand-icon {
     margin-left: auto;
     height: 16px;
     width: 16px;
-    opacity: .6;
+    opacity: 0.6;
     transition: $transition-base;
   }
 
   .sidebar-expand-icon-rotate {
-    opacity: .9;
+    opacity: 0.9;
     transform: rotate(180deg);
   }
 

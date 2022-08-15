@@ -1,53 +1,49 @@
-import React, { Fragment } from 'react';
+import React, { Fragment } from 'react'
 
-import clsx from 'clsx';
+import clsx from 'clsx'
 
-import PerfectScrollbar from 'react-perfect-scrollbar';
-import { Hidden, Drawer, Paper } from '@material-ui/core';
+import PerfectScrollbar from 'react-perfect-scrollbar'
+import { Hidden, Drawer, Paper } from '@material-ui/core'
 
-import { connect } from 'react-redux';
+import { connect } from 'react-redux'
 
-import SidebarHeader from '../../layout-components/SidebarHeader';
-import SidebarMenu from '../../layout-components/SidebarMenu';
+import SidebarHeader from '../../layout-components/SidebarHeader'
+import SidebarMenu from '../../layout-components/SidebarMenu'
 
-import navItems from './navItems';
+import navItems from './navItems'
 
-import { setSidebarToggleMobile } from '../../redux/ThemeOptions';
+import { setSidebarToggleMobile } from '../../redux/ThemeOptions'
 
-const Sidebar = props => {
+const Sidebar = (props) => {
   const {
     setSidebarToggleMobile,
     sidebarToggleMobile,
     sidebarFixed,
 
     sidebarShadow
-  } = props;
+  } = props
 
-  const closeDrawer = () => setSidebarToggleMobile(!sidebarToggleMobile);
+  const closeDrawer = () => setSidebarToggleMobile(!sidebarToggleMobile)
 
   const sidebarMenuContent = (
     <div>
-      {navItems.map(list => (
-        <SidebarMenu
-          component="div"
-          key={list.label}
-          pages={list.content}
-          title={list.label}
-        />
+      {navItems.map((list) => (
+        <SidebarMenu component='div' key={list.label} pages={list.content} title={list.label} />
       ))}
     </div>
-  );
+  )
 
   return (
     <Fragment>
       <Hidden lgUp>
         <Drawer
-          anchor="left"
+          anchor='left'
           open={sidebarToggleMobile}
           onClose={closeDrawer}
-          variant="temporary"
+          variant='temporary'
           elevation={4}
-          className="app-sidebar-wrapper-lg">
+          className='app-sidebar-wrapper-lg'
+        >
           <SidebarHeader />
           <PerfectScrollbar>{sidebarMenuContent}</PerfectScrollbar>
         </Drawer>
@@ -59,30 +55,30 @@ const Sidebar = props => {
             'app-sidebar-wrapper-fixed': sidebarFixed
           })}
           square
-          elevation={sidebarShadow ? 11 : 3}>
+          elevation={sidebarShadow ? 11 : 3}
+        >
           <SidebarHeader />
           <div
             className={clsx({
               'app-sidebar-menu': sidebarFixed
-            })}>
-            <PerfectScrollbar options={{ wheelPropagation: false }}>
-              {sidebarMenuContent}
-            </PerfectScrollbar>
+            })}
+          >
+            <PerfectScrollbar options={{ wheelPropagation: false }}>{sidebarMenuContent}</PerfectScrollbar>
           </div>
         </Paper>
       </Hidden>
     </Fragment>
-  );
-};
+  )
+}
 
-const mapStateToProps = state => ({
+const mapStateToProps = (state) => ({
   sidebarFixed: state.ThemeOptions.sidebarFixed,
   headerFixed: state.ThemeOptions.headerFixed,
   sidebarToggleMobile: state.ThemeOptions.sidebarToggleMobile
-});
+})
 
-const mapDispatchToProps = dispatch => ({
-  setSidebarToggleMobile: enable => dispatch(setSidebarToggleMobile(enable))
-});
+const mapDispatchToProps = (dispatch) => ({
+  setSidebarToggleMobile: (enable) => dispatch(setSidebarToggleMobile(enable))
+})
 
-export default connect(mapStateToProps, mapDispatchToProps)(Sidebar);
+export default connect(mapStateToProps, mapDispatchToProps)(Sidebar)

@@ -1,13 +1,12 @@
 // Core
 
 body {
-
   .app-sidebar-wrapper-lg {
     min-height: 100%;
-    overflowY: auto;
+    overflowy: auto;
     display: flex;
     flex-direction: column;
-    paddingTop: 0;
+    paddingtop: 0;
     width: $sidebar-width;
   }
 
@@ -29,7 +28,6 @@ body {
   .app-sidebar-wrapper-fixed {
     position: fixed;
   }
-
 
   .app-sidebar-logo {
     width: 32px;

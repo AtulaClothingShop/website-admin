@@ -1,24 +1,24 @@
-import { combineReducers } from 'redux';
+import { combineReducers } from 'redux'
 
-import ThemeOptions from './ThemeOptions';
+import ThemeOptions from './ThemeOptions'
 
-import { user } from '../modules/user/redux/reducers';
-import { auth } from '../modules/auth/redux/reducers';
-import { product } from '../modules/product/redux/reducers';
+import { user } from '../modules/user/redux/reducers'
+import { auth } from '../modules/auth/redux/reducers'
+import { product } from '../modules/product/redux/reducers'
 
 const appReducer = combineReducers({
   ThemeOptions,
   auth,
   user,
   product
-});
+})
 
 const rootReducer = (state, action) => {
   if (action.type === 'RESET') {
-    state = undefined;
+    state = undefined
   }
 
-  return appReducer(state, action);
-};
+  return appReducer(state, action)
+}
 
-export default rootReducer;
+export default rootReducer

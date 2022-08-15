@@ -27,19 +27,11 @@
     "jsx-a11y/accessible-emoji": 0,
     "prettier/prettier": "error"
   },
-  "extends": [
-    "react-app",
-    "eslint:recommended",
-    "plugin:react/recommended"
-  ],
-  "plugins": [
-    "react",
-    "unused-imports",
-    "prettier"
-  ],
+  "extends": ["react-app", "eslint:recommended", "plugin:react/recommended"],
+  "plugins": ["react", "unused-imports", "prettier"],
   "settings": {
     "react": {
-      "pragma": "React",  
+      "pragma": "React",
       "version": "detect"
     }
   }

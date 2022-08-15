@@ -1,15 +1,15 @@
-import React, { Component } from 'react';
-import { BrowserRouter } from 'react-router-dom';
-import { Provider } from 'react-redux';
-import CssBaseline from '@material-ui/core/CssBaseline';
-import { library } from '@fortawesome/fontawesome-svg-core';
+import React, { Component } from 'react'
+import { BrowserRouter } from 'react-router-dom'
+import { Provider } from 'react-redux'
+import CssBaseline from '@material-ui/core/CssBaseline'
+import { library } from '@fortawesome/fontawesome-svg-core'
 
-import { Routes } from './react-router/routes';
+import { Routes } from './react-router/routes'
 
-import store from './redux/store';
-import ScrollToTop from './utils/ScrollToTop';
+import store from './redux/store'
+import ScrollToTop from './utils/ScrollToTop'
 
-import './assets/base.scss';
+import './assets/base.scss'
 import './App.css'
 
 import {
@@ -27,7 +27,7 @@ import {
   faSlack,
   faDribbble,
   faGithub
-} from '@fortawesome/free-brands-svg-icons';
+} from '@fortawesome/free-brands-svg-icons'
 import {
   far,
   faSquare,
@@ -67,7 +67,7 @@ import {
   faFileAlt,
   faEye,
   faChartBar
-} from '@fortawesome/free-regular-svg-icons';
+} from '@fortawesome/free-regular-svg-icons'
 import {
   fas,
   faAngleDoubleRight,
@@ -133,7 +133,7 @@ import {
   faStar,
   faSignOutAlt,
   faLink
-} from '@fortawesome/free-solid-svg-icons';
+} from '@fortawesome/free-solid-svg-icons'
 library.add(
   far,
   faSquare,
@@ -173,7 +173,7 @@ library.add(
   faFileAlt,
   faEye,
   faChartBar
-);
+)
 library.add(
   fab,
   faFacebook,
@@ -189,7 +189,7 @@ library.add(
   faSlack,
   faDribbble,
   faGithub
-);
+)
 library.add(
   fas,
   faAngleDoubleRight,
@@ -255,21 +255,21 @@ library.add(
   faStar,
   faSignOutAlt,
   faLink
-);
+)
 
 class App extends Component {
   render() {
     return (
       <Provider store={store}>
-        <BrowserRouter basename="/">
+        <BrowserRouter basename='/'>
           <CssBaseline />
           <ScrollToTop>
             <Routes />
           </ScrollToTop>
         </BrowserRouter>
       </Provider>
-    );
+    )
   }
 }
 
-export default App;
+export default App

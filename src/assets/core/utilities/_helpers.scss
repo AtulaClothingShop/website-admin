@@ -60,9 +60,9 @@ button {
 $num: 30;
 @while $num < 150 {
   .d-#{$num} {
-    height: $num +0px !important;
-    line-height: $num +0px !important;
-    width: $num +0px !important;
+    height: $num + 0px !important;
+    line-height: $num + 0px !important;
+    width: $num + 0px !important;
   }
   $num: $num + 10;
 }
@@ -169,7 +169,7 @@ $num: 30;
   height: 100%;
   width: 100%;
   z-index: 3;
-  opacity: .15;
+  opacity: 0.15;
 }
 
 .bg-composed-wrapper {
@@ -214,7 +214,7 @@ $num: 30;
 // Background white 50%
 
 .bg-white-50 {
-  background-color: transparentize($white, .8);
+  background-color: transparentize($white, 0.8);
 }
 
 // Text dark
@@ -256,7 +256,6 @@ $num: 30;
   left: auto;
   right: 0;
 }
-
 
 // Responsive rounded
 
@@ -303,7 +302,7 @@ a.MuiButton-outlined:hover {
 }
 
 .MuiButton-root.btn-inverse:hover {
-  background-color: rgba(255,255,255,.07);
+  background-color: rgba(255, 255, 255, 0.07);
 }
 
 .card-box.mb-4,

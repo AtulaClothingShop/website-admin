@@ -1,101 +1,79 @@
-import React, { useState, forwardRef } from 'react';
-import { NavLink as RouterLink } from 'react-router-dom';
-import clsx from 'clsx';
-import PropTypes from 'prop-types';
+import React, { useState, forwardRef } from 'react'
+import { NavLink as RouterLink } from 'react-router-dom'
+import clsx from 'clsx'
+import PropTypes from 'prop-types'
 
-import { ListItem, Button, Collapse } from '@material-ui/core';
+import { ListItem, Button, Collapse } from '@material-ui/core'
 
-import ExpandLessIcon from '@material-ui/icons/ExpandLess';
+import ExpandLessIcon from '@material-ui/icons/ExpandLess'
 
 const CustomRouterLink = forwardRef(function CustomLink(props, ref) {
   return (
     <div ref={ref} style={{ flexGrow: 1 }}>
       <RouterLink {...props} />
     </div>
-  );
-});
+  )
+})
 
-const SidebarMenuListItem = props => {
-  const {
-    title,
-    href,
-    depth,
-    children,
-    icon: Icon,
-    className,
-    open: openProp,
-    label: Label,
-    ...rest
-  } = props;
+const SidebarMenuListItem = (props) => {
+  const { title, href, depth, children, icon: Icon, className, open: openProp, label: Label, ...rest } = props
 
-  const [open, setOpen] = useState(openProp);
+  const [open, setOpen] = useState(openProp)
 
   const handleToggle = () => {
-    setOpen(open => !open);
-  };
+    setOpen((open) => !open)
+  }
 
-  let paddingLeft = 22;
+  let paddingLeft = 22
 
   if (depth > 0) {
-    paddingLeft = 16 + 20 * depth;
+    paddingLeft = 16 + 20 * depth
   }
   const style = {
     paddingLeft
-  };
+  }
 
   if (children) {
     return (
-      <ListItem
-        {...rest}
-        className={clsx('app-sidebar-item', className)}
-        disableGutters>
-        <Button
-          color="primary"
-          className={clsx('app-sidebar-button', { active: open })}
-          onClick={handleToggle}
-          style={style}>
-          {Icon && <Icon className="app-sidebar-icon" />}
+      <ListItem {...rest} className={clsx('app-sidebar-item', className)} disableGutters>
+        <Button color='primary' className={clsx('app-sidebar-button', { active: open })} onClick={handleToggle} style={style}>
+          {Icon && <Icon className='app-sidebar-icon' />}
           <span>{title}</span>
           {open ? (
-            <ExpandLessIcon className="sidebar-expand-icon" color="inherit" />
+            <ExpandLessIcon className='sidebar-expand-icon' color='inherit' />
           ) : (
-            <ExpandLessIcon
-              className="sidebar-expand-icon sidebar-expand-icon-rotate"
-              color="inherit"
-            />
+            <ExpandLessIcon className='sidebar-expand-icon sidebar-expand-icon-rotate' color='inherit' />
           )}
         </Button>
         <Collapse in={open}>{children}</Collapse>
       </ListItem>
-    );
+    )
   } else {
     return (
-      <ListItem
-        {...rest}
-        className={clsx('app-sidebar-item', className)}
-        disableGutters>
+      <ListItem {...rest} className={clsx('app-sidebar-item', className)} disableGutters>
         <Button
-          activeClassName="active-item"
-          color="primary"
+          activeClassName='active-item'
+          color='primary'
           disableRipple
-          variant="text"
+          variant='text'
           className={clsx('app-sidebar-button-wrapper', `depth-${depth}`)}
           component={CustomRouterLink}
           exact
           style={style}
-          to={href}>
-          {Icon && <Icon className="app-sidebar-icon" />}
+          to={href}
+        >
+          {Icon && <Icon className='app-sidebar-icon' />}
           {title}
           {Label && (
-            <span className="menu-item-label">
+            <span className='menu-item-label'>
               <Label />
             </span>
           )}
         </Button>
       </ListItem>
-    );
+    )
   }
-};
+}
 
 SidebarMenuListItem.propTypes = {
   children: PropTypes.node,
@@ -106,11 +84,11 @@ SidebarMenuListItem.propTypes = {
   label: PropTypes.any,
   open: PropTypes.bool,
   title: PropTypes.string.isRequired
-};
+}
 
 SidebarMenuListItem.defaultProps = {
   depth: 0,
   open: false
-};
+}
 
-export default SidebarMenuListItem;
+export default SidebarMenuListItem

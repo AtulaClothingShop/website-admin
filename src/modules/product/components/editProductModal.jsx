@@ -35,8 +35,8 @@ import { ProductActions } from '../redux/actions'
 
 const useStyles = makeStyles((theme) => ({
   dialogPaper: {
-    height: '80vh',
-    width: '80vh'
+    height: '70vh',
+    width: '70vh'
   },
   dialogContent: {
     overflowX: 'hidden'
@@ -46,8 +46,8 @@ const useStyles = makeStyles((theme) => ({
   }
 }))
 
-function CreateProductModal(props) {
-  const { open, handleClose, values } = props
+function EditProductModal(props) {
+  const { product, open, handleClose, values } = props
   const classes = useStyles()
   const [productInfos, setProductInfos] = useState([{}, {}])
   const [sizeRanges, setSizeRanges] = useState([])
@@ -60,8 +60,8 @@ function CreateProductModal(props) {
         _productInfos.push({
           size: size,
           color: color,
-          buyPrice: '',
-          sellPrice: ''
+          price: '',
+          quantity: 0
         })
       })
     })
@@ -77,19 +77,19 @@ function CreateProductModal(props) {
     setColors(items)
   }
 
-  const handleProductBuyPrice = (e, index) => {
+  const handleProductPrice = (e, index) => {
     let _productInfos = productInfos
     if (index < _productInfos.length) {
-      _productInfos[index].buyPrice = e.target.value.toString()
+      _productInfos[index].price = e.target.value.toString()
     }
 
     setProductInfos(_productInfos)
   }
 
-  const handleProductSellPrice = (e, index) => {
+  const handleProductQuantity = (e, index) => {
     let _productInfos = productInfos
     if (index < _productInfos.length) {
-      _productInfos[index].sellPrice = e.target.value.toString()
+      _productInfos[index].quantity = e.target.value
     }
 
     setProductInfos(_productInfos)
@@ -125,21 +125,6 @@ function CreateProductModal(props) {
                     error={!!props.errors.name}
                   />
                   <FormHelperText error={!!props.errors.name}>{props.errors.name}</FormHelperText>
-                </FormControl>
-              </Grid>
-              <Grid item xs={12}>
-                <FormControl fullWidth margin='normal'>
-                  <TextField
-                    autoFocus
-                    margin='dense'
-                    id='description'
-                    label='Description'
-                    fullWidth
-                    value={values.description}
-                    onChange={props.handleChange}
-                    error={!!props.errors.description}
-                  />
-                  <FormHelperText error={!!props.errors.description}>{props.errors.description}</FormHelperText>
                 </FormControl>
               </Grid>
               <Grid item xs={12}>
@@ -194,8 +179,8 @@ function CreateProductModal(props) {
                     <TableCell className='text-center'>No.</TableCell>
                     <TableCell className='text-center'>Size</TableCell>
                     <TableCell className='text-center'>Color</TableCell>
-                    <TableCell>Buy Price</TableCell>
-                    <TableCell>Sell Price</TableCell>
+                    <TableCell>Price</TableCell>
+                    <TableCell>Quantity</TableCell>
                   </TableRow>
                 </TableHead>
                 <TableBody>
@@ -214,25 +199,25 @@ function CreateProductModal(props) {
                         <TableCell classes={{ root: classes.tableCellInput }}>
                           <TextField
                             variant='standard' // <== changed this
-                            id={'buyprice' + index}
-                            placeholder='Buy Price'
+                            id={'price' + index}
+                            placeholder='Price'
                             type='number'
                             InputProps={{
                               disableUnderline: true // <== added this
                             }}
-                            onChange={(e) => handleProductBuyPrice(e, index)}
+                            onChange={(e) => handleProductPrice(e, index)}
                           />
                         </TableCell>
                         <TableCell classes={{ root: classes.tableCellInput }}>
                           <TextField
                             variant='standard' // <== changed this
-                            id={'sellprice' + index}
-                            placeholder='Sell Price'
+                            id={'quantity' + index}
+                            placeholder='Quantity'
                             type='number'
                             InputProps={{
                               disableUnderline: true // <== added this
                             }}
-                            onChange={(e) => handleProductSellPrice(e, index)}
+                            onChange={(e) => handleProductQuantity(e, index)}
                           />
                         </TableCell>
                       </TableRow>
@@ -276,9 +261,8 @@ const FormikCreateProductModal = withFormik({
   validationSchema: Yup.object().shape({
     // Validate form field
     name: Yup.string().required('Name is required').min(5, 'Name must have min 5 characters').max(10, 'Name have max 10 characters'),
-    description: Yup.string(),
     type: Yup.string().required('Type is required').oneOf(['CAKE', 'CANDY', 'OTHER'])
   })
-})(CreateProductModal)
+})(EditProductModal)
 
 export default connect(mapState, actions)(FormikCreateProductModal)

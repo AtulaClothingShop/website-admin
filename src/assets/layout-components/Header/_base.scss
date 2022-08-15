@@ -1,11 +1,10 @@
-  // Core
+// Core
 body {
   .app-header {
     height: $header-height;
     display: flex;
     flex-direction: row;
   }
-
 
   .app-header-toolbar {
     height: 100%;
@@ -16,10 +15,9 @@ body {
     padding-right: ($spacer);
 
     .btn-inverse:hover {
-      background: rgba(255,255,255,.07);
+      background: rgba(255, 255, 255, 0.07);
     }
   }
-
 
   .app-logo-img {
     width: 28px;
@@ -33,10 +31,10 @@ body {
 
   .app-logo-btn {
     padding: $spacer / 2;
-    background: rgba(255,255,255,.05);
+    background: rgba(255, 255, 255, 0.05);
 
     &:hover {
-      background: rgba(255,255,255,.08);
+      background: rgba(255, 255, 255, 0.08);
     }
   }
 

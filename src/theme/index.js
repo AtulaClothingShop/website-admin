@@ -1,8 +1,8 @@
-import { createTheme } from '@material-ui/core';
-import typography from './typography';
+import { createTheme } from '@material-ui/core'
+import typography from './typography'
 
 /* eslint-disable import/no-unresolved, import/no-webpack-loader-syntax */
-import vars from '!!sass-vars-to-js-loader!../assets/core/_variables-mui.scss';
+import vars from '!!sass-vars-to-js-loader!../assets/core/_variables-mui.scss'
 
 const MuiTheme = createTheme({
   palette: {
@@ -62,6 +62,6 @@ const MuiTheme = createTheme({
     }
   },
   typography
-});
+})
 
-export default MuiTheme;
+export default MuiTheme
