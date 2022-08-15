@@ -31,7 +31,7 @@ const Header = (props) => {
   const toggleSidebarMobile = () => {
     setSidebarToggleMobile(!sidebarToggleMobile)
   }
-  const { headerShadow, headerFixed, sidebarToggleMobile, setSidebarToggleMobile, auth } = props
+  const { headerShadow, headerFixed, sidebarToggleMobile, setSidebarToggleMobile } = props
 
   const connectWallet = () => {
     if (window.ethereum) {

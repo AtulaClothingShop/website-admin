@@ -20,7 +20,6 @@ const NotFound = lazy(() => import('../modules/not-found'))
 const ProductManagement = lazy(() => import('../modules/product/components'))
 
 const Routes = (props) => {
-  const { user } = props
   const location = useLocation()
 
   const pageVariants = {
@@ -44,7 +43,7 @@ const Routes = (props) => {
     duration: 0.4
   }
 
-  let currentUser = user.currentUser
+  // let currentUser = user.currentUser
 
   return (
     <ThemeProvider theme={MuiTheme}>
