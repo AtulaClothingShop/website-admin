@@ -260,8 +260,13 @@ const FormikCreateProductModal = withFormik({
   },
   validationSchema: Yup.object().shape({
     // Validate form field
-    name: Yup.string().required('Name is required').min(5, 'Name must have min 5 characters').max(10, 'Name have max 10 characters'),
-    type: Yup.string().required('Type is required').oneOf(['CAKE', 'CANDY', 'OTHER'])
+    name: Yup.string()
+      .required('Name is required')
+      .min(5, 'Name must have min 5 characters')
+      .max(10, 'Name have max 10 characters'),
+    type: Yup.string()
+      .required('Type is required')
+      .oneOf(['CAKE', 'CANDY', 'OTHER'])
   })
 })(EditProductModal)
 
